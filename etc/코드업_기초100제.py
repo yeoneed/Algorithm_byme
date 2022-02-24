@@ -430,3 +430,99 @@ a = 0
 while a<=n:
     print(a)
     a+=1
+
+#6076
+a = int(input())
+
+for i in range(a+1):
+    print(i)
+
+#6077
+a = int(input())
+sum =0 
+
+for i in range(2,a+1,2):
+    sum = sum+i
+
+print(sum)
+
+#6078
+while True:
+    n = input()
+    if(n=='q'):
+        break
+    else:
+        print(n)
+print("q")
+#6078_ver2
+while True:
+    n = input()
+    if n=='q':
+        print("q")
+        break
+    else:
+        print(n)
+#6078_ver3
+while True:
+    n = input()
+    print(n)
+    if n=='q':
+        break
+
+#6079
+n = int(input())
+sum =0
+i = 1 #i는 1부터-> 왜? 정수를 더하니까
+
+while True:
+    if sum<n: #이거 함정이었음- 입력한 수 보다 같거나 작은이 아니라 그냥 작은걸로 해야 결과가 나옴
+        sum+=i #i랑 합 변수랑 더해서 다시 합 변수에 저장
+        i+=1 #정수 증가
+    else:  
+        i-=1 #i가 1부터 시작했기 때문에 1빼줌
+        break
+    
+print(i)
+#6079_ver2
+n = int(input()) #12
+sum =0
+i = 0
+
+while sum<n: #0 1 3 6 10 
+    i+=1     #1 2 3 4 5
+    sum+=i   #1 3 6 10 15
+
+print(i)
+
+#6080
+n,m= map(int, input().split())
+
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        print(i,j)
+
+#6081
+#작은 따옴표 2개를 사용해서 print(..., sep='') 으로 출력하면, 공백없이 모두 붙여 출력된다.
+a = input()
+n = int(a,16)
+
+for i in range(1, 16):
+    print('%X'%n, '*%X'%i, '=%X'%(n*i), sep='')
+
+#6082
+n = int(input())
+
+for i in range(1, n+1):
+    if i%10==3 or i%10==6 or i%10==9:
+        print("X", end=' ')
+    else:
+        print(i, end= ' ')
+
+#6083
+r,g,b = map(int, input().split())
+
+for i in range(r):
+    for j in range(g):
+        for k in range(b):
+            print(i,j,k, sep=' ')
+print(r*g*b)
