@@ -526,3 +526,20 @@ for i in range(r):
         for k in range(b):
             print(i,j,k, sep=' ')
 print(r*g*b)
+
+#6084
+h,b,c,s = map(int, input().split())
+sum = h*b*c*s/8/1024/1024
+
+print("{:.1f} MB".format(sum))
+
+#6085
+w,h,b = map(int, input().split())
+sum = w*h*b/8/1024/1024
+print("{:.2f} MB".format(sum))
+#6085_ver2
+w,h,b = map(int, input().split())
+#6086_ver3
+w,h,b = map(int, input().split())
+sum = w*h*b/8/1024/1024
+print("%.2f"%sum, "MB")
