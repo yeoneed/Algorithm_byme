@@ -539,7 +539,73 @@ sum = w*h*b/8/1024/1024
 print("{:.2f} MB".format(sum))
 #6085_ver2
 w,h,b = map(int, input().split())
-#6086_ver3
+#6085_ver3
 w,h,b = map(int, input().split())
 sum = w*h*b/8/1024/1024
 print("%.2f"%sum, "MB")
+
+#6086
+n = int(input())
+sum = 0
+i = 0
+
+while(sum<n):
+  i+=1
+  sum+=i 
+ 
+print(sum)
+
+#6087
+n = int(input())
+
+for i in range (1,n+1):
+  if i%3==0:
+    continue
+  else:
+    print(i, end=' ')
+    
+#6088
+a,d,n = map(int, input().split())
+
+print(a+d*(n-1))
+
+#6089
+a,r,n = map(int, input().split())
+
+print(a*r**(n-1))
+#6089_ver2
+a,r,n = map(int, input().split())
+
+for i in range (1,n):
+  a = a*r
+
+print(a)
+
+#6090
+a,m,d,n = map(int, input().split())
+
+sum = 0
+
+if m==1:
+  sum = a+(n-1)*d
+else:
+  sum = (m**(n-1)*a)+(((m**(n-1)-1)//(m-1))*d)
+
+print(sum)
+
+#6090_ver2
+a,m,d,n = map(int, input().split())
+
+for i in range(1,n):
+  a = a*m+d
+
+print(a)
+
+#6091
+a,b,c = map(int, input().split())
+d =1
+
+while d%a!=0 or d%b!=0 or d%c!=0:
+  d+=1
+
+print(d)
