@@ -70,3 +70,12 @@ if int(d)==0 :
       m[int(x)][int(y)+j] = 1 #가로일때는 열에 막대길이+되니까
       #j+l-1: l까지 반복하면 되는거 기억하고 응용 잘하기!
 ```
+- #6098: 중첩 반복문
+```
+for i in range(1,10):
+	for j in range(1,10):
+		if a==2:
+			break
+	if a==2: break
+```
+요렇게 break 2번 순차적으로 적용
