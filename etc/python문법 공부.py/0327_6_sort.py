@@ -38,3 +38,21 @@ d2 = sorted(d.items(), key = d_key)
 #for k,v in d2:
  #   print(v, end = ' ')
 print([v for (k,v) in d2])#왜 리스트로 묶는거지? 딕셔너리 아니니까 값만 들어있으니까 리스트로 묶는거 같음
+
+#0329 복습
+#아래 딕셔너리에서 key기준으로 정렬하고, 해당 value만 출력하기
+d = {1: 5, 2: 4, -5: 8, 100: -128}
+
+get_key = lambda lst: lst[0]
+
+d2 = sorted(d.items(), key = get_key)
+
+for i in d2:
+    print(i[1], end = ' ')
+print()
+
+d3 = [v for (k,v) in d2] #d.items: 튜플로 구성되어 있는 리스트 -> 호출 시 (k,v)해주면 됨
+print(d3)
+
+for k,v in d2: #d2 = d.items 랑 자료형 같음
+    print(v, end=' ')

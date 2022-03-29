@@ -3,6 +3,7 @@ d = {'a':1, 'b':2, 'c':3}
 
 print(d['c'])
 print(d.get('e')) #딕셔너리에 없는 값 -> none으로 나옴
+print(d.get('f', 0)) #딕셔너리에 없는 값-> 0으로 나옴
 
 #키=인덱스만 출력하기, <keys(), values(), items() 는 함수임-> items() 괄호 꼭 붙여주기!>
 for k in d.keys():
@@ -28,3 +29,6 @@ print()
 #위의 딕셔너리를 컴프리핸션으로 출력
 d2 = dict([(v,k) for k,v in d.items()])
 print(d2)
+
+d3 = dict([(k,v) for k,v in d.items()]) #출력 시 괄호로 꼭 묶어주기!
+print(d3)
