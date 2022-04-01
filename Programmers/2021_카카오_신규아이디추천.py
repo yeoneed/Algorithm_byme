@@ -13,6 +13,7 @@ new_id2 = []
 idx=-1
 
 def solution(new_id):
+    new_id= list(new_id)
     new_id2 = []
     idx=-1
     for k,v in enumerate(new_id): 
@@ -24,8 +25,8 @@ def solution(new_id):
         if (new_id[k]>=97 and new_id[k]<=122) or (new_id[k]>=48 and new_id[k]<=57) or new_id[k]==45 or new_id[k]==46 or new_id[k]==95:
             new_id2.append(new_id[k])
             idx+=1
-            if len(new_id2)!=1:
-                if new_id2[idx]==new_id2[idx-1]==46:
+            if len(new_id2)!=1: #문자 길이가 2 이상일때
+                if new_id2[idx]==new_id2[idx-1]==46: #마침표가 연속 두개오면 그전꺼까지만 담기
                     new_id2= new_id2[:idx]
                     idx-=1
 
@@ -33,6 +34,7 @@ def solution(new_id):
 #마침표가 처음이나 끝에 있으면 제거
         if new_id2[0]==46:
                 new_id2.remove(new_id2[0])
+
     if new_id2:
         if new_id2[-1]==46:
             new_id2.remove(new_id2[-1])
@@ -40,10 +42,10 @@ def solution(new_id):
     if not new_id2:
         new_id2.append(97) #빈 문자열일 경우 a 대입
 
-    if len(new_id2)>=16: #문자열 길이가 16 이상일 때
+    if len(new_id2)>=16: #문자열 길이가 16 이상일 때 15번째까지만 출력
         new_id2= new_id2[:15]
-    
-        if new_id2[-1]==46:
+        
+    if new_id2[-1]==46:
             new_id2.remove(new_id2[-1]) #마지막 문자가 마침표일 경우 제거
 
     if len(new_id2)<=2: #new_id 길이가 2자 이하면 길이 3 될때까지 가장 마지막 문자 붙이기
