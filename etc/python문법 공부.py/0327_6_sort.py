@@ -38,6 +38,7 @@ d2 = sorted(d.items(), key = d_key)
 #for k,v in d2:
  #   print(v, end = ' ')
 print([v for (k,v) in d2])#왜 리스트로 묶는거지? 딕셔너리 아니니까 값만 들어있으니까 리스트로 묶는거 같음
+#for: 앞의 인자가 들어있는 곳 나타내줌
 
 #0329 복습
 #아래 딕셔너리에서 key기준으로 정렬하고, 해당 value만 출력하기
