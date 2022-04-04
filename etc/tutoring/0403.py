@@ -28,7 +28,7 @@ lists = []
 lists.append([5, 6, 7, 8])
 lists.append([5, 6, 4, 5])
 lists.append([1, 9, 3, 5])
-get_key = lambda lst: lst[::-1]
+get_key = lambda lst: lst[::-1] #lst[ : :-1] 빈칸부터 빈칸까지(=전체 리스트) 역순으로 저장
 lst2 = sorted(lists, key=get_key)
 print(lst2)
 
