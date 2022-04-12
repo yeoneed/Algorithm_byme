@@ -3,8 +3,8 @@
 
 def func2(arr, n):
     for i in range(n):
-        for j in range(n):
-            if arr[i] + arr[j]==100 and i!=j:
+        for j in range(i+1, n):
+            if arr[i] + arr[j]==100:
                 return 1
     return 0
 
