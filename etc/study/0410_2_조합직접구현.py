@@ -1,3 +1,4 @@
+#백준 문제: 6603_로또 연관
 import sys
 
 read_ints = lambda: list(map(int, sys.stdin.readline().rstrip().split()))
