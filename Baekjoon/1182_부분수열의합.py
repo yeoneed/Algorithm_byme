@@ -2,26 +2,26 @@
 # 그 수열의 원소를 다 더한 값이 S가 되는 경우의 수를 구하는 프로그램을 작성하시오.
 
 import sys
-
-def input():
-    n,s = map(int, sys.stdin.readline().split())
-    lst = list(map(int, sys.stdin.readline().split()))
+global ans
+ans=0
 
 def combi(lst,n,s,flag, idx):
     if idx==n:
+        cnt = 0
+        
         for i,f in enumerate(flag):
             if f:
-                if sum(lst[i])==s:
-                    cnt+=1
-            
+                cnt+=lst[i]
+        if cnt==s:
+            global ans
+            ans+=1
+
+        return         
 
     flag[idx]=1
     combi(lst, n,s,flag, idx+1)
     flag[idx]=0
     combi(lst,n,s,flag, idx+1)
-
-
-
 
 def main():
     n,s = map(int, sys.stdin.readline().split())
@@ -29,6 +29,11 @@ def main():
     idx=0
     flag = [False]*n
     combi(lst, n,s,flag, idx)
+
+    if s==0:
+        print(ans-1)
+    else:
+        print(ans)
 
 if __name__ == "__main__":
   main()
