@@ -13,8 +13,9 @@ def combination_recursive(seq, flag, N, M, idx):
             print()
         return
 
-    flag[idx]=1
-    combination_recursive(seq, flag, N, M, idx+1)
+    if sum(flag) < M:
+      flag[idx]=1
+      combination_recursive(seq, flag, N, M, idx+1)
     flag[idx]=0
     combination_recursive(seq, flag, N, M, idx+1)
 
