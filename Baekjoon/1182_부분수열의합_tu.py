@@ -12,7 +12,7 @@ def combi(lst,n,s,flag, idx):
                 return 1
         return 0
     
-    res=0
+    res=0 #모든 수의 합이 s인지 아닌지 판별하는 변수 
     flag[idx]=1
     res += combi(lst, n, s, flag, idx+1)
     flag[idx]=0
