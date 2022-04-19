@@ -13,6 +13,7 @@ def permutation_recursive(seq, flag, results, N, M, idx):
         flag[i] = True
         results[idx]=seq[i]
         permutation_recursive(seq, flag, results, N, M, idx+1)
+        flag[i] = False
 
 def permuation_main(seq, M):
   print("***permutation***")

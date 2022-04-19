@@ -7,7 +7,5 @@ res2=0
 for i in lst:
     res1 += 10+ (i//30)*10
     res2 += 15 + (i//60)*15
-    
-if res1<res2: print(f"Y {res1}")
-elif res1>res2: print(f"M {res2}")
-else: print(f"Y M {res1}")
+
+print(f"Y {res1}" if res1<res2 else f"M {res2}" if res1>res2 else f"Y M {res1}")
