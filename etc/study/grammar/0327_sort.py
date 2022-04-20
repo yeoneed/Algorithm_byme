@@ -16,10 +16,10 @@ print(add(5, 6))
 lst = [(1, 5), (2, 4), (-5, 8), (100, -128)]
 get_x = lambda a: a[0]
 get_y = lambda a: a[1]
-print(sorted(lst, key=get_x)) #key 값을 기준으로 값 정렬
+print(sorted(lst, key=get_x)) #key 값을 기준으로 값 정렬- lst의 인자들이 get_key에 들어감
 print(sorted(lst, key=get_y)) #key 값을 기준으로 y 정렬(위의 정의를 바탕으로)
 
-reverse_sorted = lambda x: sorted(x, reverse=True)
+reverse_sorted = lambda x: sorted(x, reverse=True)#-> lst의 첫번째 인자를 기준으로 역순 정렬
 
 reverse_sorted(lst)
 #key 정렬-> 해당 value 를 출력

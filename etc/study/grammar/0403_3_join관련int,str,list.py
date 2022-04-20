@@ -1,5 +1,5 @@
 digits = ["5", "6", "7"]
-#num=int("".join(digits)) #"구분자".join(리스트)형태
+#num=int("".join(digits)) #"구분자".join(리스트)형태, join안에는 무조건 list형태가 들어가야함
 
 #print(num) # 567
 #print(type(num)) -> int
