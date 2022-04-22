@@ -11,10 +11,10 @@ def permu(cal, lst, flag, calres, n, idx, alst):
       alst.append(answer)
       return
 
-   for i in range(n):
-      if flag[i]==1:
+   for i in range(len(cal)):
+      if flag[i]==True:
          continue
-      flag[i] =1
+      flag[i]=True
       calres[idx]=cal[i]
       permu(cal, lst, flag, calres, n, idx+1,alst)
       flag[i]=0
@@ -30,24 +30,12 @@ def calculate(res, lst, calres, idx):
       res*=lst[idx+1]
       return res
    elif calres[idx]=='/':
-      if res>=0: res/=lst[idx+1]
+      if res>=0: 
+         res= res//lst[idx+1]
+         return res
       else: 
-         res*=-1
-         res/= lst[idx+1]
-         res*=-1
-
-def main():
-    n = read_int()
-    lst = read_ints()
-    o_cal= read_ints()
-    cal = []
-    cal = transcal(o_cal,cal)
-    flag = [False]*len(cal)
-    calres = []
-    alst = []
-    calres = permu(cal, lst, flag, calres, n, 0, alst)
-    print(max(alst))
-    print(min(alst))
+         res = abs(res)//lst[idx+1]
+         return res*-1
 
 def transcal(o_cal, cal):
     for i in range(o_cal[0]):
@@ -59,6 +47,19 @@ def transcal(o_cal, cal):
     for i in range(o_cal[3]):
        cal.append('/')
     return cal
+
+def main():
+    n = read_int()
+    lst = read_ints()
+    o_cal= read_ints()
+    cal = []
+    cal = transcal(o_cal,cal)
+    flag = [False]*len(cal)
+    calres = [0]*(n-1)
+    alst = []
+    calres = permu(cal, lst, flag, calres, n, 0, alst)
+    print(max(alst))
+    print(min(alst))
 
 if __name__ == "__main__":
     main() 

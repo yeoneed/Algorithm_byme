@@ -9,7 +9,7 @@ def permutation_recursive(seq, flag, results, N, M, idx, ans):
         ans.add(''.join(map(str, results))) #**
         return 
     for i,f in enumerate(flag):
-        if flag[i]==True:
+        if flag[i]==True: 
             continue
         flag[i] = True
         results[idx]=seq[i]

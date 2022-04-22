@@ -8,7 +8,7 @@ def permutation_recursive(seq, flag, results, N, M, idx):
         print(results)
         return
     for i in range(N):
-        if flag[i]==True:
+        if flag[i]==True: #이거 없으면 production(중복 허용하는 순열)
             continue
         flag[i] = True
         results[idx]=seq[i]
