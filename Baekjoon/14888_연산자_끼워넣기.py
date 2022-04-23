@@ -12,7 +12,7 @@ def permu(cal, lst, flag, calres, n, idx, alst):
       return
 
    for i in range(len(cal)):
-      if flag[i]==True:
+      if flag[i]==True or (cal[i]==cal[idx] and flag[idx]==1):
          continue
       flag[i]=True
       calres[idx]=cal[i]
