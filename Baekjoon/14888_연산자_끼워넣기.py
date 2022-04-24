@@ -3,33 +3,38 @@ import sys
 read_ints = lambda: list(map(int, sys.stdin.readline().rstrip().split()))
 read_int = lambda: read_ints()[0]
 
-def permu(cal, lst, flag, calres, n, idx, alst):
+def permu(op, lst, flag, n, idx, answer):
    if idx==n-1:
-      answer = lst[0]
-      for i in range(n-1):
-         answer = calculate(answer, lst, calres, i)
-      alst.append(answer)
-      return
-
-   for i in range(len(cal)):
-      if flag[i]==True or (cal[i]==cal[idx] and flag[idx]==1):
+      return answer, answer
+   
+   max_val = int(-1e10)
+   min_val = int(1e10)
+   for i,v in enumerate(op):
+      if flag[i]==1:
          continue
-      flag[i]=True
-      calres[idx]=cal[i]
-      permu(cal, lst, flag, calres, n, idx+1,alst)
-      flag[i]=0
+      flag[i] = True
+      result = calculate(answer, v, lst, idx)
+      max_tmp, min_tmp = permu(op,lst,flag, n, idx+1, result)
+      flag[i] = False
+      if max_val < max_tmp:
+         max_val = max_tmp
+      if min_val > min_tmp:
+         min_val = min_tmp
+
+   return max_val, min_val
+
         
-def calculate(res, lst, calres, idx):
-   if calres[idx]=='+':
+def calculate(res, op, lst, idx):
+   if op=='+':
       res += lst[idx+1]
       return res
-   elif calres[idx]=='-':
+   elif op=='-':
       res-= lst[idx+1]
       return res
-   elif calres[idx]=='*':
+   elif op=='*':
       res*=lst[idx+1]
       return res
-   elif calres[idx]=='/':
+   elif op=='/':
       if res>=0: 
          res= res//lst[idx+1]
          return res
@@ -52,14 +57,14 @@ def main():
     n = read_int()
     lst = read_ints()
     o_cal= read_ints()
-    cal = []
-    cal = transcal(o_cal,cal)
-    flag = [False]*len(cal)
-    calres = [0]*(n-1)
-    alst = []
-    calres = permu(cal, lst, flag, calres, n, 0, alst)
-    print(max(alst))
-    print(min(alst))
+    op = []
+    op = transcal(o_cal,op)
+    flag = [False]*len(op)
+    answer = lst[0]
+    
+    max_val, min_val = permu(op, lst, flag, n, 0, answer)
+    print(max_val)
+    print(min_val)
 
 if __name__ == "__main__":
     main() 
