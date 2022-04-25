@@ -1,5 +1,6 @@
 digits = ["5", "6", "7"]
 #num=int("".join(digits)) #"구분자".join(리스트)형태, join안에는 무조건 list형태가 들어가야함
+# - 왜? ''.join => list를 문자열(사이에 끼인 거 없이)로 바꾸어 주는 것이기 때문
 
 #print(num) # 567
 #print(type(num)) -> int
@@ -15,3 +16,9 @@ ints2 = list(str(num))#'5', '6', '7'
 print([int(i) for i in ints2])
 
 #ints = list(map(int, str(num)))
+
+#번외
+#알파벳 기호-> 숫자로 바꾸기
+ord()
+#숫자-> 알파벳 문자
+chr()

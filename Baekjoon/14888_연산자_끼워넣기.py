@@ -7,8 +7,6 @@ def permu(op, lst, flag, n, idx, answer):
    if idx==n-1:
       return answer, answer
    
-   max_val = int(-1e10)
-   min_val = int(1e10)
    for i,v in enumerate(op):
       if flag[i]==1:
          continue
