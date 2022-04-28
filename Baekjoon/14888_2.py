@@ -9,6 +9,7 @@ def permu(lst, op_count, n, idx, answer):
    
    max_val = int(-1e10)
    min_val = int(1e10)
+   
    for i in range(4):
         if op_count[i] == 0:
            continue
