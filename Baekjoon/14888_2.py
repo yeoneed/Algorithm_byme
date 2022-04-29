@@ -5,6 +5,7 @@ read_int = lambda: read_ints()[0]
 
 def permu(lst, op_count, n, idx, answer):
    if idx==n-1:
+      #print(answer)
       return answer, answer
    
    max_val = int(-1e10)
