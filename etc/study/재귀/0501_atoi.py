@@ -1,4 +1,4 @@
-def atoi(num_str):
+def atoi(num_str): #문자형 숫자를 그냥 숫자로 바꾸는 함수(alphabet to int)
     num_lst = list(num_str)
     if num_lst[0]=='-':
         num_lst= num_lst[1:]

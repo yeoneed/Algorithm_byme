@@ -1,4 +1,4 @@
-def itoa(num):
+def itoa(num): #숫자형 변수를 문자 형태로 바꾸는 함수(int to alphabet)
     flag = 1
     if num<0:
         flag = -1
