@@ -6,6 +6,10 @@ def atoi(num_str):
         sign = -1
         num_lst = num_lst[1:]
 
+    answer = atoi_recur(num_lst) * sign
+    return answer
+
+
 #재귀
 def atoi_recur(lst):
     if not lst:
@@ -13,6 +17,7 @@ def atoi_recur(lst):
     num = int(lst[-1])
     ret = atoi_recur(lst[:-1])
     result = num+ret*10
+    return result
 
 def main():
     print(atoi("5182"))
