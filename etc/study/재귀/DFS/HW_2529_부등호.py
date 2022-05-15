@@ -7,31 +7,30 @@ def permu(k, sign, check, flag, idx, result):
     if idx == k+1:
         result_num = ''.join(map(str, check))
         result.append(result_num)
-        return result
+        return
     
     for i in range(10):
         if flag[i]==True:
             continue
         flag[i]=True
         check[idx] = i
-
-        if flag[i]==1:       
-            if idx!=0 and sign[idx-1]=='<':
-                if check[idx-1] > check[idx]:
-                    flag[i]=False
-                    check[idx]=False
-                    continue
-            elif idx!=0 and sign[idx-1]=='>':
-                if check[idx-1] < check[idx]:
-                    flag[i]=False
-                    check[idx]=False
-                    return result
+       
+        if idx!=0 and sign[idx-1]=='<':
+            if check[idx-1] > check[idx]:
+                flag[i]=False
+                check[idx]=False
+                continue
+        elif idx!=0 and sign[idx-1]=='>':
+            if check[idx-1] < check[idx]:
+                flag[i]=False
+                check[idx]=False
+                return
 
         ret = permu(k,sign,check, flag, idx+1, result)
         flag[i]=False
         check[idx]=False
 
-    return result
+    return
 
 def max_min(result):
     int_result = [int(i) for i in result]
@@ -52,7 +51,7 @@ def main():
     check = [False] * (k+1)
     result = [] 
 
-    result = permu(k, sign, check, flag, 0, result)
+    permu(k, sign, check, flag, 0, result)
     
     max_str, min_str = max_min(result)
     print(max_str)
