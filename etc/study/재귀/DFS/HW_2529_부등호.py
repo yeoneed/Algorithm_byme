@@ -3,60 +3,52 @@ import sys
 read_ints = lambda: list(sys.stdin.readline().split())
 read_int = lambda: int(read_ints()[0])
 
-def permu(k, sign, check, flag, idx, result):
+def permu(k, sign, check, flag, idx, max_str, min_str):
     if idx == k+1:
         result_num = ''.join(map(str, check))
-        result.append(result_num)
-        return
-    
+        if int(result_num)>int(max_str): #이렇게 종료 조건에서 비교해주는 걸 많이 씀
+            max_str = result_num
+        if int(result_num)<int(min_str):
+            min_str = result_num
+        return max_str, min_str
+
     for i in range(10):
         if flag[i]==True:
             continue
         flag[i]=True
         check[idx] = i
        
-        if idx!=0 and sign[idx-1]=='<':
+        if idx>0 and sign[idx-1]=='<':
             if check[idx-1] > check[idx]:
                 flag[i]=False
                 check[idx]=False
                 continue
-        elif idx!=0 and sign[idx-1]=='>':
+        elif idx>0 and sign[idx-1]=='>':
             if check[idx-1] < check[idx]:
                 flag[i]=False
                 check[idx]=False
-                return
+                return max_str, min_str
 
-        ret = permu(k,sign,check, flag, idx+1, result)
+        max_str, min_str = permu(k,sign,check, flag, idx+1, max_str, min_str)
+
         flag[i]=False
         check[idx]=False
 
-    return
-
-def max_min(result):
-    int_result = [int(i) for i in result]
-    min_int = min(int_result)
-    max_int = max(int_result)
-    min_idx = int_result.index(min_int)
-    max_idx = int_result.index(max_int)
-    min_str = result[min_idx]
-    max_str = result[max_idx]
-    
     return max_str, min_str
-            
                 
 def main():
+    basic = int(1e9) #int 안 씌워주면 기본 float형태로 저장됨
     k = read_int()
     sign = read_ints() #부등호 입력
     flag = [False] * 10
     check = [False] * (k+1)
-    result = [] 
+    max_str = '0'
+    min_str = str(basic)
 
-    permu(k, sign, check, flag, 0, result)
+    maxi, mini = permu(k, sign, check, flag, 0, max_str, min_str)
     
-    max_str, min_str = max_min(result)
-    print(max_str)
-    print(min_str)
-
+    print(maxi)
+    print(mini)
 
 if __name__ == "__main__":
     main()

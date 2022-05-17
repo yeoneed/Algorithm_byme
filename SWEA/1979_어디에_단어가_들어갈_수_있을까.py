@@ -18,8 +18,8 @@ for idx in range(1,t+1):
         cnt2=0 
         max1=0 
         max2=0
-        for j in range(n): #가로로 탐색
-            if tc[i][j]==0:
+        for j in range(n):
+            if tc[i][j]==0: #가로로 탐색
                 if max1==k:
                     total_cnt+=1
                 cnt1=0
