@@ -15,7 +15,7 @@ def solve(tc):
 
     for i in range(3):
         for j in range(3):
-            cnt = [0 for _ in range(0,10)] #9개의 수 사용했는 지 안했는 지 체크하기 위한 리스트 생성
+            cnt = [0 for _ in range(0,10)] #3X3 묶음마다 9개의 수 사용했는 지 안했는 지 체크하기 위한 리스트 생성
             for k in range(3):
                 for l in range(3):
                     if cnt[tc[i*3+k][j*3+l]]>=1:
@@ -30,6 +30,8 @@ def main():
         tc = [list(map(int, sys.stdin.readline().split())) for _ in range(9)] #testcase 입력
         answer = solve(tc)
         print(f"#{t_idx} {answer}")
-        
+
 if __name__ == "__main__":
     main()
+    
+#배운 점: cnt[리스트 원소[][]] 즉 해당 원소 사용 횟수 구하는 이중 리스트(?) 선언하는 방식
