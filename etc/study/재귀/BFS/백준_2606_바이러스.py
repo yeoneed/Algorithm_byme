@@ -7,12 +7,13 @@ read_int = lambda: read_ints()[0]
 def bfs(graph, start_x, visited): #bfs는 그래프, 시작 노드, 방문 리스트 정보를 받음 
     q= deque()                    #덱을 선언
     q.append(start_x)             #덱에 시작 노드를 집어넣음
+    visited[start_x] = True
     while q:                      #덱에 아무것도 없을 때 까지
         start_node = q.popleft()  #덱에 가장 먼저 넣은 노드를 반환
-        visited[start_node]=1     #해당 노드 방문 처리(꺼냈으면 무조건 반환!) 
         for nodes in graph[start_node]: #시작 노드와 연결된 노드들 중 아직 방문안한 노드들을 넣음
             if visited[nodes]!=1:
-                q.append(nodes)           
+                q.append(nodes)
+                visited[nodes] = True           
 #이런 과정을 통해서 더이상 1과 연결된 새로운 노드가 발견되지 않을 때 까지 탐색함
 
 def main():

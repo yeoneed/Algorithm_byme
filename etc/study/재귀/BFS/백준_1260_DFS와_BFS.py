@@ -5,12 +5,13 @@ sys.stdin = open("input.txt")
 
 def dfs(graph, this_node, visited, res1): #dfs
     visited[this_node]=1 #들어온 점 방문처리
+    print(this_node, end = ' ')
     res1.append(this_node) #방문한 노드 순서에 현재 노드 추가
     for node in sorted(graph[this_node]): #현재 노드가 있는 그래프와 연결된 노드(오름차순으로) 탐색
         if visited[node]!=1: #만약 연결된 노드가 아직 방문하지 않은 노드라면
             dfs(graph, node, visited, res1) #dfs적용
 
-def bfs(graph, start, visited): #bfs
+def bfs(graph, start, visited): #bfs, 그래프 최단경로
     res2 = []
     q = deque()
     q.append(start)
@@ -39,8 +40,8 @@ def main():
     visited = [0] * (node+1) #dfs 탐색 후 visited 리스트 초기화
     res2 = bfs(graph, start_node, visited)
 
-    for i in res1:
-        print(i, end= ' ')
+    #for i in res1:
+        #print(i, end= ' ')
     print()
     for i in res2:
         print(i, end=' ')
