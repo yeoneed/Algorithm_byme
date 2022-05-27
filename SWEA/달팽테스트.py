@@ -1,5 +1,5 @@
-#import sys
-#sys.stdin = open("input.txt")
+import sys
+sys.stdin = open("input.txt")
 
 dx = [0,1,0,-1] #우 하 좌 상 회전
 dy = [1,0, -1, 0]
@@ -27,9 +27,9 @@ def snale(n, board):
         val+=1
                            
 def main():
-    t = int(input())
+    t = int(sys.stdin.readline())
     for t_idx in range(1, t+1):
-        n = int(input())
+        n = int(sys.stdin.readline())
         board = [[0 for _ in range(n)] for _ in range(n)] #n*n 리스트 생성
         board[0][0] =1
         snale(n, board)
