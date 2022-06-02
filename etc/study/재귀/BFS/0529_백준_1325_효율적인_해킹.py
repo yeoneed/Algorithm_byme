@@ -1,3 +1,4 @@
+#시작 지점이 어디인지 모르므로 모든 곳에서 시작해보고 가장 최단거리를 찾는 문제
 from collections import deque
 import sys
 
