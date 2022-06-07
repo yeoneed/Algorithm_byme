@@ -29,9 +29,7 @@ def bfs(n,m,board, start):
                 q.append((nx,ny))
                 visited[nx][ny]=1
     
-    return cnt
-    
-    
+    return cnt 
 
 def main():
     n,m = list(map(int, sys.stdin.readline().strip().split()))
@@ -49,6 +47,7 @@ def main():
             elif board[i][j] == 2:
                 start_xy.append((i, j))
     
+    #변수명 근접 선언
     min_val = int(1e9)
     for wall in combinations(zero_lst, 3):
         board_cp = copy(board)
