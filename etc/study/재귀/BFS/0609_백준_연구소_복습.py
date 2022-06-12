@@ -33,7 +33,7 @@ def bfs(n,m,board, start):
                 visited[nx][ny]=1
                 board[nx][ny]=2
 
-    return cnt #0이 아닌 요소의 개수
+    return cnt #값이 2인 요소의 개수 
 
 #def max_size(n,m,brd): #직관적이기는 하지만 시간복잡도 증가
    # cnt=0
@@ -55,12 +55,12 @@ def main():
                 zero.append((i,j))
             elif board[i][j]==2:
                 start.append((i,j))
-            else:
+            else: #기존에 벽인 요소의 개수 구하기(=cnt)
                 cnt+=1
 
     walls = list(combinations(zero, 3)) #출력해보니 이중 튜플 형태
     min_int = 1e9
-    for wall in walls:
+    for wall in walls: #벽 조합 별 완성된 보드에서 0인 요소의 개수 비교하기
         brd = deepcopy(board) #벽 조합 바뀔때마다 원래 보드에 적용해야 하므로 deepcopy 사용
         for (i,j) in wall:
             brd[i][j] =1

@@ -20,14 +20,15 @@ def R(num):
     
 def bfs(start, end):
     q = deque()
-    visited = [0 for _ in range(10000)]
-    q.append((start, 0))
-    visited[start] =1
+    visited = [(-1, "X") for _ in range(10000)]
+    q.append(start)
+    visited[start] = (-2, "START")
 
     while q:
-        now, step = q.popleft()
+        now = q.popleft()
         if now==end:
-            return step
+            history(visited, end)
+            break
         for i in range(4):
             move = d[i]
             if move=='D':
@@ -38,21 +39,44 @@ def bfs(start, end):
                 next = L(now)
             else:
                 next = R(now)
-
-            q.append((next, step+1))
-            visited[next] =1
-
-    return -1   
             
+            if visited[next] == (-1, "X"):
+                q.append(next)
+                visited[next] = (now, move)
+
+    return
+
+
+'''
+def history(visited, end):
+    val, move = visited[end]
+    if (val, move) == (-2, "START"):
+        print()
+        return    
+    else:
+        history(visited, val)
+        print(move, end='')
+'''
+
+
+def history(visited, now):
+    if now == -2:
+        print()
+        return
+    before, move = visited[now]
+    history(visited, before)
+    print(move, end="")
+    
             
 def solve(start, end):
-    print(bfs(start, end))
-    
+    bfs(start, end)
+
 def main():
     t = int(sys.stdin.readline())
     for i in range(t):
         a,b = list(map(int, sys.stdin.readline().strip().split()))
         solve(a,b)
+
 
 if __name__ == "__main__":
     main()

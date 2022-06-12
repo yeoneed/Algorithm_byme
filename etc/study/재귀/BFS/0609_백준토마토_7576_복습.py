@@ -21,7 +21,7 @@ def bfs(n,m,start, board, valid_num): #너비우선 탐색으로 1인 좌표의 
         visited[i][j] =1
 
     while q:
-        x,y, step = q.popleft()
+        x,y, step = q.popleft() #방문한 좌표의 값을 꺼낼 때마다 카운트 1 증가
         cnt+=1
         if cnt==valid_num:
             return step
@@ -32,7 +32,7 @@ def bfs(n,m,start, board, valid_num): #너비우선 탐색으로 1인 좌표의 
                 q.append((nx, ny, step+1))
                 visited[nx][ny]=1  
 
-    return -1
+    return -1 #유효숫자 개수 리턴 못할경우는 토마토 다 익지 못하는 상황-> -1 리턴
 
 def main():
     m,n = read_ints()
