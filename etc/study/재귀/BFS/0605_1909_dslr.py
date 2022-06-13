@@ -40,7 +40,7 @@ def bfs(start, end):
             else:
                 next = R(now)
             
-            if visited[next] == (-1, "X"):
+            if visited[next] == (-1, "X"): #기본!! 아직 방문하지 않은 점에 대해서만 처리!
                 q.append(next)
                 visited[next] = (now, move)
 
