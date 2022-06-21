@@ -20,3 +20,5 @@ def main():
     
 if __name__ == "__main__":
     main()
+
+#면접 끝나고 꼭 복습하기
