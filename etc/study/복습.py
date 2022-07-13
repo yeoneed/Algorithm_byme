@@ -1,3 +1,4 @@
-#0으로 채워진 길이 5의 list 생성
+#- dictionary에서 key만 출력
+    
+d = {'a': 1, 'b': 2, 'c': 3}
 
-print([0 for _ in range(5)])
