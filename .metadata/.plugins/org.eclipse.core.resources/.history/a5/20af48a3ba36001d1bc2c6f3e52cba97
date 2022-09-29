@@ -1,0 +1,10 @@
+import java.util.*;
+import java.io.*;
+public class lec02_보이는학생 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
