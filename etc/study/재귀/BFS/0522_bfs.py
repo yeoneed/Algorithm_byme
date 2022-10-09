@@ -26,7 +26,7 @@ def bfs(n,m,board, visited, src_x, src_y, dst_x, dst_y):
 
 def solve(n, m, board):
     visited = [[0 for _ in range(m)] for _ in range(n)]
-    return  bfs(n,m,board, visited,0,0,n-1,m-1)
+    return bfs(n,m,board, visited,0,0,n-1,m-1)
     
 
 def main():
