@@ -12,7 +12,7 @@ def dfs(n, m, lst, result):
         if v in result:
             continue  # 이미 있는 수는 추가안함
         result.append(v)
-        dfs(n, m, lst, result)
+        dfs(n, m, lst, result)  # 값 반영을 위해서 result를 넘겨줌
         result.pop()
     return
 
