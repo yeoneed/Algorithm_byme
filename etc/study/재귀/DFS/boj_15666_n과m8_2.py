@@ -13,14 +13,17 @@ lst.sort()
 
 
 def main():
-    result = list(permutations(lst, 2))
+    # 순열 만들때 부터 중복 제거해서 result에 담고 정렬
+    result = sorted(list(set(permutations(lst, m))))
     """
     for i in result:
         print(list(i))  # ( , ) 튜플 형태
     """
-    #result = list(set([i for i in result]))
-    print(set([i for i in result]))
-    result
+
+    for i in result:
+        for j in i:
+            print(j, end=" ")
+        print()
 
 
 if __name__ == "__main__":
