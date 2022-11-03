@@ -13,7 +13,7 @@ def solution(sizes):
         w = lens[0]
         h = lens[1]
         if w < h:
-            w, h = h, w
+            w, h = h, w  # 파이썬에서는 이 한 줄로 swap이 된다.
         width = max(w, width)
         height = max(h, height)
 
