@@ -1,3 +1,11 @@
-2
-ccazzzzbb
-aabbbccb
+10
+abc
+aaba
+a
+a
+a
+a
+a
+a
+a
+a
