@@ -1,36 +1,34 @@
 import sys
-def read_ints(): return sys.stdin.readline().strip()
-def read_int(): return read_ints()[0]
+# 문제에서 배운 것: 꼭 길이먼저 정렬하지 않아도 됨!!! 알파벳 먼저 정렬하고 길이 정렬하는게 더 빠름,,
 
 
-def compare(word_lst):  # 일단 길이로 정렬, 같은 길이는 알파벳 순으로 그 부분만 또 정렬
-    result = []
-    same_len = []
-    temp = sorted([(k, v)
-                   for k, v in word_lst], key=lambda x: x[1])
-    # v를 기준으로 정렬
-    border_word = temp[0][0]
-    border_len = temp[0][1]  # 가장 짧은 단어 길이를 기준값으로!
+sys.stdin = open("input.txt")
 
-    for i in range(len(temp)-1):
-        if border_len == temp[i][1]:
-            if border_word > temp[i][0]:
-                result.remove(border_word)
-                result.append(temp[i][0])
-                result.append(border_word)
-                border_word =
+'''
+    word_lst = sorted([(k, v) for k, v in word_lst],
+                      key=lambda x: x[0])  # 알파벳 순 정렬
+    word_lst = sorted([(k, v) for k, v in word_lst],
+                      key=lambda x: x[1])  # 길이 순 정렬
+
+    for k, v in word_lst:
+        print(k)
+'''
 
 
 def main():
-    t = int(read_int())  # 문자열 몇 줄 들어오는지 입력
+    t = int(sys.stdin.readline().strip())  # 문자열 몇 줄 들어오는지 입력
     word_lst = []
 
     for i in range(t):
-        word = read_ints()
-        word_lst.append(word, len(word))
+        # word_lst.append((word, len(word))) lambda로 하면 시간 초과 남
+        word_lst.append(sys.stdin.readline().strip())
 
-    # print(word_lst)
-    compare(word_lst)
+    word_lst = list(set(word_lst))  # 중복제거-> 문자열 들어올때 마다 하지않고, 한번만 해야 시간초과 안남
+    word_lst.sort()
+    word_lst.sort(key=len)
+
+    for word in word_lst:
+        print(word)
 
 
 if __name__ == "__main__":
