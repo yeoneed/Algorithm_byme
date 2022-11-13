@@ -4,7 +4,8 @@ import sys
 
 sys.stdin = open("input.txt")
 
-'''
+"""
+def solution(word_lst):
     word_lst = sorted([(k, v) for k, v in word_lst],
                       key=lambda x: x[0])  # 알파벳 순 정렬
     word_lst = sorted([(k, v) for k, v in word_lst],
@@ -12,7 +13,7 @@ sys.stdin = open("input.txt")
 
     for k, v in word_lst:
         print(k)
-'''
+"""
 
 
 def main():
@@ -20,9 +21,11 @@ def main():
     word_lst = []
 
     for i in range(t):
-        # word_lst.append((word, len(word))) lambda로 하면 시간 초과 남
-        word_lst.append(sys.stdin.readline().strip())
-
+        word = sys.stdin.readline().strip()
+        word_lst.append(word)
+        # word_lst.append((word, len(word))) #lambda ver
+    word_lst = list(set(word_lst))
+    # solution(word_lst) lambda ver
     word_lst = list(set(word_lst))  # 중복제거-> 문자열 들어올때 마다 하지않고, 한번만 해야 시간초과 안남
     word_lst.sort()
     word_lst.sort(key=len)
